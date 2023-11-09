@@ -68,15 +68,20 @@
       }
       mytable += "</table>";
       window.document.write(mytable);
+
       var url = window.document.URL;
       document.write("thie document file:" + url + "</br>");
+      var loc = window.location;
+      document.write("this location:" + loc + "</br>");
 
       var temp = 6;
       while (temp > 2) {
         document.write(temp-- + "</br>");
       }
+
       var mystring1 = "abcdefg";
       mystring2 = new String("ABANDON ALL THE THINGS");
+      document.write(mystring1 + mystring2 + "</br>");
       document.write(mystring1 + "</br>" + mystring2 + "</br>");
 
       document.write("num_of_string1:" + mystring1.length + "</br>");
