@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <script src="demo.js"></script>
+    <script type="text/javascript">
+      window.alert("a+b=" + (a + b));
+      window.alert(window.location);
+      window.alert("this title is" + window.document.title);
+      window.document.title = "New Title";
+      window.alert("this title is" + window.document.title);
+      window.alert(window.history);
+      window.alert(window.navigator);
+      window.document.write("Good day!");
+      window.document.write("<h1>Hello!</h1>");
+      var pi = Math.PI;
+      var v1 = pi++;
+      window.document.write(pi);
+      window.document.write(v1);
+    </script>
+    <br />
+
+    <script type="text/javascript">
+      var sum = 0;
+      for (var i = 1; i <= 100; i++) {
+        sum = sum + i;
+      }
+      window.document.write("1+2+3+……+100=" + sum);
+    </script>
+    <br />
+
+    <script type="text/javascript">
+      function calculate_sum(n) {
+        var sum = 0;
+        for (var i = 1; i <= n; i++) {
+          sum = sum + i;
+        }
+        return sum;
+      }
+      window.document.write("1+2+3+……+100=" + calculate_sum(100));
+    </script>
+    <br />
+    <script type="text/javascript">
+      var polyline = [
+        [30.55045, 114.40418],
+        [30.55046, 114.40467],
+        [30.55038, 114.40539],
+        [30.55049, 114.40583],
+      ];
+      function calculate_dis(myArray) {
+        var sum_dis = 0.0;
+        for (var i = 0; i < myArray.length - 1; i++) {
+          var dis_x = Math.pow(myArray[i + 1][0] - myArray[i][0], 2);
+          var dis_y = Math.pow(myArray[i + 1][1] - myArray[i][1], 2);
+          var sum_dis = sum_dis + Math.sqrt(dis_x + dis_y);
+        }
+        var end_dis = sum_dis * 110000; // 乘以比例尺
+        return end_dis;
+      }
+      document.write("这段距离为:" + calculate_dis(polyline).toFixed(2) + "m");
+    </script>
+
+    <br />
+    <script type="text/javascript">
+      function identify_level(score) {
+        if (score >= 90 && score <= 100) var identity = "一等";
+        else if (score >= 75 && score < 90) var identity = "二等";
+        else if (score >= 60 && score < 75) var identity = "三等";
+        else if (score >= 0 && score < 60) var identity = "四等";
+        else var identity = "输入错误";
+        return identity;
+      }
+      document.write("98分的学生的等级为:" + identify_level(98));
+      document.write("<br>81分的学生的等级为:" + identify_level(81));
+      document.write("<br>63分的学生的等级为:" + identify_level(63));
+      document.write("<br>30分的学生的等级为:" + identify_level(30));
+    </script>
+  </body>
+</html>

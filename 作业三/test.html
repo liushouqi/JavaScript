@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript"></script>
+    <style>
+      table {
+        border-spacing: 0;
+        padding: auto;
+      }
+      tr,
+      td {
+        text-align: center;
+        color: blueviolet;
+      }
+      .icon {
+        height: 50px;
+        width: auto;
+      }
+      textarea {
+        color: aquamarine;
+        font-weight: bold;
+        font-size: xx-large;
+      }
+      image {
+        height: 80px;
+        width: auto;
+      }
+      html {
+        background-image: url("background_picture.png");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    这是一个表格
+    <table border="1px" align="mid" bgcolor="yellow">
+      <caption>
+        这是一张基本信息表
+      </caption>
+      <!--table-->
+      <tr>
+        <td>姓名</td>
+        <td>学号</td>
+        <td>年龄</td>
+        <td>家庭住址</td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>1001</td>
+        <td>20</td>
+        <td>安徽省合肥市</td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>1002</td>
+        <td>19</td>
+        <td>安徽省六安市</td>
+      </tr>
+      <tr>
+        <td>王五</td>
+        <td colspan="3">目前未知</td>
+      </tr>
+    </table>
+    <form border="1px" name="form1">
+      普通文本框
+      <input type="text" name="text1" /><br />
+      密码框
+      <input type="password" name="password1" /><br />
+      创建几个复选框
+      <input type="checkbox" name="checkbox1" />大一
+      <input type="checkbox" name="checkbox2" checked="checked" />大二
+      <input type="checkbox" name="checkbox3" />大三
+      <input type="checkbox" name="checkbox4" />大四<br />
+      创建几个单选框
+      <input type="radio" name="radio1" />男
+      <input type="radio" name="radio2" />女<br />
+      创建提交按钮
+      <input type="submit" name="submit1" />
+      <br />
+      创建重置按钮
+      <input type="reset" name="reset1" />
+      <br />
+      创建选择文件的按钮
+      <input type="file" name="file1" />
+      <br />
+      创建一个icon按钮
+      <input type="image" name="icon1" src="vscode_icon.png" class="icon" />
+      <br />
+      创建一个退出当前界面的按钮
+      <button type="button" name="button1" id="button1">退出</button>
+      <script>
+        var closebutton = document.getElementById("button1");
+        closebutton.addEventListener("click", function () {
+          window.close();
+        });
+      </script>
+      <br />
+      创建一个打开百度的按钮
+      <button type="button" name="button2" id="startbaidu">打开百度</button>
+      <script>
+        var startbutton = document.getElementById("startbaidu");
+        startbutton.addEventListener("click", function () {
+          open("http://www.baidu.com");
+        });
+      </script>
+      <br />
+
+      创建一个icon普通按钮
+      <button>
+        <img src="visual_studio_icon.png" class="icon" id="vsbutton" />
+      </button>
+      <br />
+      创建一个组合框
+      <select name="select1" size="auto">
+        <optgroup label="年龄">
+          <option selected="selected">18</option>
+          <option selected="selected">19</option>
+          <option selected="selected">20</option>
+          <option selected="selected">21</option>
+        </optgroup>
+      </select>
+      <br />
+      创建一个多个大类的组合框
+      <select name="select2" size="auto">
+        <optgroup label="年龄">
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+        </optgroup>
+        <optgroup label="大洋">
+          <option>太平洋</option>
+          <option>大西洋</option>
+          <option>印度洋</option>
+          <option>北冰洋</option>
+        </optgroup>
+      </select>
+      <br />
+      创建一个多行的文本
+      <textarea type="text" name="mytext" cols="10" rows="8">
+        明月几时有，把酒问青天
+      </textarea>
+      <input type="submit" name="submit2" />
+      <input type="reset" name="reset2" />
+    </form>
+    Image In HTML
+    <br />
+    <img
+      src="风景照1.png"
+      alt="The image can't be seen!"
+      title="This is a beautiful picture!"
+    />
+    <br />
+    <img
+      src="https://tse3-mm.cn.bing.net/th/id/OIP-C.G3neuy5XDKCfUKSSrC2FSAHaEK?w=309&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+      alt="The image can't be seen!"
+    />
+    <figure>
+      <img
+        src="https://tse3-mm.cn.bing.net/th/id/OIP-C.hSkhqKm9N5ebgYx9CTY9dgHaEK?w=312&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        alt="The image can't be seen!"
+        height="200px"
+        width="auto"
+      />
+      <figcaption>一幅优美的山水照片！</figcaption>
+    </figure>
+    下面是音频和视频的测试
+    <p>你将听到一首歌曲</p>
+    <audio controls>
+      <source src="王力宏 - 唯一 (国语版).mp3" type="audio/mp3" />
+    </audio>
+    <p>你将看到一段视频</p>
+    <video controls height="400px" width="auto">
+      <source src="如愿.webm" type="video/webm" />
+    </video>
+  </body>
+</html>
