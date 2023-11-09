@@ -5,13 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script type="text/javascript"></script>
+    <style>
+      table {
+        border-spacing: 0;
+        padding: auto;
+      }
+      tr,
+      td {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <script type="text/javascript">
       var count = 1;
+      if (count == 1) window.alert("The count is 1!");
       if (count > 0) {
-        window.document.write("count=" + count);
+        window.document.write("count=" + count + "</br>");
       }
+
+      function identify_level(score) {
+        var indentity;
+        switch (true) {
+          case score >= 90 && score <= 100:
+            identity = "一等";
+            break;
+          case score >= 75 && score < 90:
+            identity = "二等";
+            break;
+          case score >= 60 && score < 75:
+            identity = "三等";
+            break;
+          default:
+            identity = "输入错误";
+            break;
+        }
+        return identity;
+      }
+      document.write("98分的学生的等级为:" + identify_level(98));
+      document.write("</br>81分的学生的等级为:" + identify_level(81));
+      document.write("</br>63分的学生的等级为:" + identify_level(63));
+      document.write("</br>30分的学生的等级为:" + identify_level(30));
+    </script>
+    <script type="text/javascript">
+      var num = "A";
+      var mytable = "<table border ='auto'  align = 'mid'";
+      mytable += "<tr>";
+      mytable += "<td>";
+      mytable += "count";
+      mytable += "</td>";
+      mytable += "<td>";
+      mytable += "symbol" + "</br>";
+      mytable += "</td></tr>";
+      for (i = 0; i < 10; i++) {
+        mytable += "<tr>";
+        mytable += "<td>";
+        mytable += i;
+        mytable += "</td>";
+        mytable += "<td>";
+        mytable += String.fromCharCode(num.charCodeAt(0) + i) + "</br>";
+        mytable += "</td></tr>";
+      }
+      mytable += "</table>";
+      window.document.write(mytable);
+      var url = window.document.URL;
+      document.write("thie document file:" + url + "</br>");
+
+      var temp = 6;
+      while (temp > 2) {
+        document.write(temp-- + "</br>");
+      }
+      var mystring1 = "abcdefg";
+      mystring2 = new String("ABANDON ALL THE THINGS");
+      document.write(mystring1 + "</br>" + mystring2 + "</br>");
+
+      document.write("num_of_string1:" + mystring1.length + "</br>");
+      document.write("num_of_string2:" + mystring2.length + "</br>");
+
+      document.write("string1_to_upper:" + mystring1.toUpperCase() + "</br>");
+      document.write("string2_to_low:" + mystring2.toLowerCase() + "</br>");
+    </script>
+    <script type="text/javascript">
+      var string1 = "Today is Thursday!";
+      document.write("第7-17的字符:" + string1.substring(6, 18) + "</br>");
+      document.write("第5个字符是" + string1.charAt(4) + "</br>");
+      document.write("o所在的位置为:" + string1.indexOf("o") + "</br>");
+      var myArray = new Array(3);
+      myArray[0] = ["a", "b", "c"];
+      myArray[1] = [1, 2, 3];
+      myArray[2] = ["A", "B", "C"];
+      document.write(myArray[0] + "</br>" + myArray[1] + "</br>" + myArray[2]);
     </script>
   </body>
 </html>
