@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width"
+    />
+    <style>
+      html,
+      body,
+      #container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <title>弧线的绘制和编辑</title>
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值&plugin=AMap.BezierCurveEditor"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div class="input-card" style="width: 120px">
+      <button
+        class="btn"
+        onclick="bezierCurveEditor.open()"
+        style="margin-bottom: 5px"
+      >
+        开始编辑
+      </button>
+      <button class="btn" onclick="bezierCurveEditor.close()">结束编辑</button>
+    </div>
+    <script type="text/javascript">
+      var map = new AMap.Map("container", {
+        center: [116.397637, 39.900001],
+        zoom: 14,
+      });
+
+      var path = [
+        //每个弧线段有两种描述方式
+        [116.39, 39.91, 116.37, 39.91], //起点
+        //第一段弧线
+        [116.380298, 39.907771, 116.38, 39.9], //控制点，途经点
+        //第二段弧线
+        [116.385298, 39.907771, 116.4, 39.9], //控制点，途经点//弧线段有两种描述方式1
+        //第三段弧线
+        [
+          //弧线段有两种描述方式2
+          [116.392872, 39.887391], //控制点
+          [116.40772, 39.909252], //控制点
+          [116.41, 39.89], //途经点
+        ],
+        //第四段弧线
+        [116.423857, 39.889498, 116.422312, 39.899639, 116.425273, 39.902273],
+        //控制点，控制点，途经点，每段最多两个控制点
+      ];
+
+      var bezierCurve = new AMap.BezierCurve({
+        path: path,
+        isOutline: true,
+        outlineColor: "#ffeeff",
+        borderWeight: 3,
+        strokeColor: "#3366FF",
+        strokeOpacity: 1,
+        strokeWeight: 6,
+        // 线样式还支持 'dashed'
+        strokeStyle: "solid",
+        // strokeStyle是dashed时有效
+        strokeDasharray: [10, 10],
+        lineJoin: "round",
+        lineCap: "round",
+        zIndex: 50,
+      });
+
+      bezierCurve.setMap(map);
+      // 缩放地图到合适的视野级别
+      map.setFitView([bezierCurve]);
+
+      var bezierCurveEditor = new AMap.BezierCurveEditor(map, bezierCurve);
+
+      bezierCurveEditor.on("addnode", function (event) {
+        log.info("触发事件：addnode");
+      });
+
+      bezierCurveEditor.on("adjust", function (event) {
+        log.info("触发事件：adjust");
+      });
+
+      bezierCurveEditor.on("removenode", function (event) {
+        log.info("触发事件：removenode");
+      });
+
+      bezierCurveEditor.on("end", function (event) {
+        log.info("触发事件： end");
+        // event.target 即编辑后的曲线对象
+      });
+    </script>
+  </body>
+</html>
