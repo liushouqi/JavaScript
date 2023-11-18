@@ -34,12 +34,13 @@
     <!-- WMS服务 -->
     <script type="text/javascript">
       var map1 = new AMap.Map("container", {
-        resizeEnable: true,
-        center: [118.46, 30.02],
-        zoom: 15,
+        resizeEnable: true, //可以改变窗口的大小
+        center: [118.46, 30.02], //地图中心
+        zoom: 15, //可见级别
         layers: [new AMap.TileLayer()],
       });
 
+      //加载卫星和路网图层
       // var satelliteLayer = new AMap.TileLayer.Satellite();
       // var roadNetLayer = new AMap.TileLayer.RoadNet();
       // var map2 = new AMap.Map("container", {
@@ -78,17 +79,30 @@
              */
             let parser = new DOMParser();
             let xmlDoc = parser.parseFromString(responseText, "text/xml");
-            // let coordinates = xmlDoc
-            //   .getElementsByTagName("gml:coordinates")[0]
-            //   .innerHTML.split(" ");
-            // let path = [];
-            // for (let i = 0; i < coordinates.length; i++) {
-            //   let lnglat = coordinates[i].split(",");
-            //   let lng = Number(lnglat[0]);
-            //   let lat = Number(lnglat[1]);
-            //   path.push(new AMap.LngLat(lng, lat));
-            // }
-            //console.log(path);
+            //画一条折线段
+            //       let coordinates = xmlDoc
+            //         .getElementsByTagName("gml:coordinates")[0]
+            //         .innerHTML.split(" ");
+            //       let path = [];
+            //       for (let i = 0; i < coordinates.length; i++) {
+            //         let lnglat = coordinates[i].split(",");
+            //         let lng = Number(lnglat[0]);
+            //         let lat = Number(lnglat[1]);
+            //         path.push(new AMap.LngLat(lng, lat));
+            //       }
+            //       //console.log(path);
+            //       let polyline = new AMap.Polyline({
+            //         path: path,
+            //         borderWeight: 5,
+            //         strokeColor: "red",
+            //         lineJoin: "round",
+            //       });
+            //       // 将折线添加至地图实例
+            //       map1.add(polyline);
+            //     }
+            //   };
+            //   xhr.send(request);
+            // });
 
             //画出xml文件中的所有LineString
             for (let i = 0; i < 14; i++) {
@@ -106,7 +120,7 @@
               let polyline = new AMap.Polyline({
                 path: path,
                 borderWeight: 5,
-                strokeColor: "yellow",
+                strokeColor: "red",
                 lineJoin: "round",
               });
               // 将折线添加至地图实例
